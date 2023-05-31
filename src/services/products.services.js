@@ -5,9 +5,9 @@ const prodDao = new ProductsDaoMongoDB();
 // import { __dirname } from "../path.js";
 // const prodDao = new ProductsDaoFS(__dirname+'/daos/filesystem/products.json');
 
-//service solo sabe a que metodo del dao llamar para sumplir la funcion
+//service solo sabe a que metodo del dao llamar para cumplir la funcion
 //conectado con controllers
-//llega la peticion desde service y se deriva a products.dao.js
+//llega la peticion desde controllers y se deriva a products.dao.js
 export const getAllServ = async () => {
     try {
      const docs = await prodDao.getAllProducts();
