@@ -1,19 +1,19 @@
 import { Router } from 'express';
 import {
-  getAllCtll,
-  getByIdCtll,
-  createCtll,
-  updateCtll,
-  deleteCtll,
+  getAllProdCtll,
+  getByIdProdCtll,
+  createProdCtll,
+  updateProdCtll,
+  deleteProdCtll,
   } from '../controllers/products.controllers.js';
 
 const router = Router();
 
 //viene peticion desde server.js y se deriva a controllers
-router.get('/', getAllCtll);
-router.get('/:id', getByIdCtll);
-router.post('/', createCtll);
-router.put('/:id', updateCtll);
-router.delete('/:id', deleteCtll);
+router.get('/', getAllProdCtll);
+router.get('/:id', getByIdProdCtll);
+router.post('/', createProdCtll);
+router.put('/:id', updateProdCtll);
+router.delete('/:id', deleteProdCtll);
 
 export default router;

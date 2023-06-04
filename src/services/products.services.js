@@ -6,9 +6,8 @@ const prodDao = new ProductsDaoMongoDB();
 // const prodDao = new ProductsDaoFS(__dirname+'/daos/filesystem/products.json');
 
 //service solo sabe a que metodo del dao llamar para cumplir la funcion
-//conectado con controllers
 //llega la peticion desde controllers y se deriva a products.dao.js
-export const getAllServ = async () => {
+export const getAllProdServ = async () => {
     try {
      const docs = await prodDao.getAllProducts();
      return docs;
@@ -17,7 +16,7 @@ export const getAllServ = async () => {
     }
 };
 
-export const getByIdServ = async (id) => {
+export const getByIdProdServ = async (id) => {
     try {
       const doc = await prodDao.getProductById(id);
       if(!doc) throw new Error('Product not found')
@@ -27,7 +26,7 @@ export const getByIdServ = async (id) => {
     }
   };
   
-  export const createServ = async (obj) => {
+  export const createProdServ = async (obj) => {
     try {
       const newProd = await prodDao.createProduct(obj);
       if(!newProd) throw new Error('Validation Error!')
@@ -37,7 +36,7 @@ export const getByIdServ = async (id) => {
     }
   };
   
-  export const updateServ = async (id, obj) => {
+  export const updateProdServ = async (id, obj) => {
     try {
       const doc = await prodDao.getProductById(id);
       if(!doc){
@@ -51,7 +50,7 @@ export const getByIdServ = async (id) => {
     }
   };
   
-  export const deleteServ = async (id) => {
+  export const deleteProdServ = async (id) => {
     try {
        const prodDel = await prodDao.deleteProduct(id);
        return prodDel;
