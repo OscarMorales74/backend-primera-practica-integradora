@@ -9,6 +9,14 @@ export default class CartsDaoMongoDB {
         console.log(error);
         };
     };
+    async getAllCarts() {
+        try {
+          const response = await CartsModel.find({});
+          return response;
+        } catch (error) {
+          console.log(error);
+        }
+      }
     async getCart(cId) {
         try {
             const response = await CartsModel.findById(cId)
@@ -17,7 +25,7 @@ export default class CartsDaoMongoDB {
             console.log(error);
         };
     };
-    async addProdToCart(pId, cId){
+    async addProdToCart(cId, pId){
         try {
             const cartFind = await CartsModel.findById(cId)
             const existProduct = await cartFind.products.find(prodIt => prodIt._id === pId);
@@ -39,7 +47,7 @@ export default class CartsDaoMongoDB {
             console.log(error)
         };
     };
-    async delProdFromCart (pId, cId){
+    async delProdFromCart (cId, pId){
         try {
             const cartFind = await CartsModel.findById(cId);
             const existProduct = await cartFind.products.find(prodIt => prodIt._id === pId);

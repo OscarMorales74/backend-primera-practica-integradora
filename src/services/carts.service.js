@@ -8,18 +8,29 @@ export const createCartServ = async () => {
     } catch (error) {
       console.log(error);
     }
-  };
-
+};
+export const getAllCartsServ = async () => {
+    try {
+      const docs = await cartsDao.getAllCarts();
+      return docs;
+    } catch (error) {
+          console.log(error);
+    }
+};
 export const getCartServ = async (cId) => {
     try {
       const doc = await cartsDao.getCart(cId);
-      if(!doc) throw new Error('Cart not found')
-      else return doc;
+      if(!doc) {
+        throw new Error('Cart not found')
+    }
+      else {
+        return doc;
+        }        
     } catch (error) {
       console.log(error);
+      throw error;
     }
-  };
-
+};
 export const addProdToCartServ = async (cid, pid) =>{
     try {
         const doc = await cartsDao.addProdToCart(cid, pid);
@@ -28,7 +39,6 @@ export const addProdToCartServ = async (cid, pid) =>{
         console.log(error);
     }
 };
-  
 export const delProdFromCartServ = async (cId, pId) => {
     try {
       const doc = await cartsDao.delProdFromCart(cId, pId);
@@ -36,5 +46,5 @@ export const delProdFromCartServ = async (cId, pId) => {
     } catch (error) {
       console.log(error);
     }
-  };
+};
   

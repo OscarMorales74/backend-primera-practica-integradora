@@ -6,4 +6,4 @@ router.get('/', (req, res) => {
     res.render('chatSocket');
 });
 
-export default router
+export default router;
